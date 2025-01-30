@@ -53,7 +53,6 @@
   onmouseenter={() => ($isOpen = true)}
   onmouseleave={closeSidebar}
   onfocusin={() => ($isOpen = true)}
-  use:focusOutside={{ onFocusOut: closeSidebar }}
   use:shortcuts={[
     {
       shortcut: { key: 'Escape' },
