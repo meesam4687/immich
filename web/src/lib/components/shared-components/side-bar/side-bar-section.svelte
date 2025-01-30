@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { focusOutside } from '$lib/actions/focus-outside';
   import { shortcuts } from '$lib/actions/shortcut';
   import ImmichLogo from '$lib/components/shared-components/immich-logo.svelte';
   import { menuButtonId } from '$lib/components/shared-components/navigation-bar/navigation-bar.svelte';
@@ -9,6 +8,9 @@
 
   interface Props {
     children?: Snippet;
+    /**
+     * In "small" screen sizes, show mini version of the sidebar.
+     */
     peek?: boolean;
   }
 
@@ -43,12 +45,12 @@
   id="sidebar"
   tabindex="-1"
   class="immich-scrollbar group relative z-10 flex w-0 flex-col gap-1 overflow-y-auto overflow-x-hidden bg-immich-bg sm:pt-8 transition-all duration-200 dark:bg-immich-dark-bg hover:sm:pr-6 md:w-64 md:pr-6 hover:md:shadow-none"
-  class:shadow-2xl={$isOpen}
-  class:dark:border-r-immich-dark-gray={$isOpen}
-  class:border-r={$isOpen}
+  class:shadow-2xl={$isOpen && innerWidth < mdBreakpoint}
+  class:dark:border-r-immich-dark-gray={$isOpen && innerWidth < mdBreakpoint}
+  class:border-r={$isOpen && innerWidth < mdBreakpoint}
   class:pr-6={$isOpen}
-  class:sm:w-18={!$isOpen && peek}
   class:w-64={$isOpen}
+  class:sm:w-18={!$isOpen && peek}
   inert={isHidden}
   onmouseenter={() => ($isOpen = true)}
   onmouseleave={closeSidebar}
