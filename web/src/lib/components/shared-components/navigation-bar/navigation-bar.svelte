@@ -77,13 +77,15 @@
       </a>
     </div>
     <div class="flex justify-between gap-4 lg:gap-8 pr-6">
-      <div class="hidden w-full max-w-5xl flex-1 tall:pl-0 sm:flex items-center gap-2">
+      <div class="flex items-center gap-2 max-w-5xl w-full">
         <a data-sveltekit-preload-data="hover" class="md:hidden" href={AppRoute.PHOTOS}>
-          <ImmichLogo width="45em" noText={true} />
+          <ImmichLogo width="40em" noText={true} class="max-w-none" />
         </a>
-        {#if $featureFlags.search}
-          <SearchBar grayTheme={true} />
-        {/if}
+        <div class="hidden flex-1 tall:pl-0 sm:block">
+          {#if $featureFlags.search}
+            <SearchBar grayTheme={true} />
+          {/if}
+        </div>
       </div>
 
       <section class="flex place-items-center justify-end gap-1 md:gap-2 w-full sm:w-auto">
