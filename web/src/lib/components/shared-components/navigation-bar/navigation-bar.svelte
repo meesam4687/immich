@@ -21,7 +21,6 @@
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';
-  import ThemeButton from '../theme-button.svelte';
   import UserAvatar from '../user-avatar.svelte';
   import AccountInfoPanel from './account-info-panel.svelte';
   import { isOpen } from '$lib/stores/side-bar.store';
@@ -100,8 +99,6 @@
             onclick={() => {}}
           />
         {/if}
-
-        <ThemeButton padding="2" />
 
         <div
           use:clickOutside={{

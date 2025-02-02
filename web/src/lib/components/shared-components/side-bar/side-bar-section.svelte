@@ -1,8 +1,6 @@
 <script lang="ts">
   import { shortcuts } from '$lib/actions/shortcut';
-  import ImmichLogo from '$lib/components/shared-components/immich-logo.svelte';
   import { menuButtonId } from '$lib/components/shared-components/navigation-bar/navigation-bar.svelte';
-  import { AppRoute } from '$lib/constants';
   import { isOpen } from '$lib/stores/side-bar.store';
   import { onMount, type Snippet } from 'svelte';
 
